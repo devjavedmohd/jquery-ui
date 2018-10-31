@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery Fundamentals</title>
+	<link rel="stylesheet" href="css/jquery-ui.min.css" />
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
+	<style>
+		.blueColor{background-color: blue}
+		.redColor{background-color: red}
+		.yellowColor{background-color: yellow}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var content = $('#myContent').html();
+			//$('a[href="www.google.com"]').css({
+			//	'background': 'blue',
+			//	'color': 'red',
+			//	'padding':'10px'
+			//});
+
+			//$('a:contains("Yahoo")').css('font-size' , '18px');
+			$('div.redColor, div.yellowColor, div.blueColor').each(function(){
+				//alert($(this).html());
+			});
+			var output = $('#outputDiv');
+			/*	
+				$('li.one').each(function(index){
+					output.html(output.html() + "</br>" + index + " " + $(this).html());
+				});
+				$('<div class="yellowColor">Hello</div>').prependTo('#outputDiv');
+				$('#outputDiv').prepend('<div class="redColor">Hello</div>');
+				$('.redColor').remove('#outputDiv');
+				$('#myContent').attr({'title':'First Div Element','style':'border:2px solid red;padding:10px;', 'class':'suit'});
+			*/
+			/*
+				$('#outputDiv').mouseenter(function(e){
+					$(this).addClass('redColor');
+					$(this).text('X: ' + e.pageX + ' Y: ' + e.pageY);
+				});
+			*/
+			/*$('#help').click(function(){
+				// load html content from another page
+				$('#loadHere').load('div.html');
+			});
+
+			function loadDoc(){
+				$('#difFilter').innerHTML = "First Ajax Loaded";
+			};*/
+
+			$('#myButton').click(function(){
+				//$.get('helpdetails.html', function(data){
+					//$('#outputDivGet').html(data);
+				//});
+				// $.get
+				/*$.getJSON('course-info.json', function(data, status){
+					for(var i = 0; i<data.length;i++){
+						//var datTi = data[i].Title;
+						$('#outputDivGet').append(`
+							<p><b>${data[i].Title}</b></p>
+							<p>${data[i].Level}</p>
+							<p>Status: ${status}</p>
+						`);
+					}
+				});*/
+
+				/*$.post('course-info.json', 
+				{
+					name: "Donald Duck",
+					city: "Duckburg"
+				}, function(data, status){
+					$('#outputDivGet').html(data + 'Hi' + status);
+				})*/
+			});
+
+		});
+
+	</script>
+</head>
+<body>
+	<hr>
+	<h3>The Dialog</h3>
+	<div id="dialog">
+		<p>The content here should go into a dialog box.</p>
+	</div>
+	<hr>
+	<button id="myButton">Click to Get help HTML</button>
+	<div id="outputDiv">Top Output Div Element</div>
+	<div id="myContent">
+		My jQuery enabled page!
+	</div>
+	<ul>
+		<li class="one">First</li>
+		<li class="one">Second</li>
+		<li class="one">Third</li>
+		<li onclick="loadDoc()">Hi</li>
+	</ul>
+
+	<button id="help">Help</button>
+
+	<div id="loadHere" style="border: 2px solid red;width:1000px;height:300px;"></div>
+
+	<div class="blueColor"> Blue Color</div>
+	<div class="redColor"> Red Color</div>
+	<div class="yellowColor"> Yellow Color</div>
+	<a href="www.yahoo.com" target="_blank">Go To Yahoo.com</a>
+	<a href="www.google.com" target="_blank">Go To Google.com</a>
+	
+	<div id="outputDivGet">.get() output comes over here.</div>
+</body>
+</html>
